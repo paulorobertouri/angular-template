@@ -1,0 +1,43 @@
+<main class="page">
+  <section class="task-board" aria-label="Task board">
+    <header class="task-board__header">
+      <h1>Task Board</h1>
+      <p>{{ completedTasks }} of {{ tasks.length }} tasks done</p>
+    </header>
+
+    <form class="task-board__form" (ngSubmit)="add()">
+      <label for="task-title">New task</label>
+      <div class="task-board__form-row">
+        <input
+          id="task-title"
+          name="taskTitle"
+          [(ngModel)]="title"
+          placeholder="Write a clear deliverable"
+        />
+        <button type="submit">Add</button>
+      </div>
+    </form>
+
+    <ul class="task-board__list">
+      @for (task of tasks; track task.id) {
+        <li>
+          <label>
+            <input
+              type="checkbox"
+              [checked]="task.done"
+              (change)="toggle(task.id)"
+            />
+            <span>{{ task.title }}</span>
+          </label>
+          <button
+            type="button"
+            class="task-board__remove"
+            (click)="remove(task.id)"
+          >
+            Remove
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+</main>
