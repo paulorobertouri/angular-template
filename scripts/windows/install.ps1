@@ -5,5 +5,5 @@ $ProjectRoot = Split-Path -Parent (Split-Path -Parent $ScriptDir)
 
 Set-Location $ProjectRoot
 
-Write-Output "Formatting code..."
-npm run format
+Write-Output "Installing dependencies..."
+npm install
