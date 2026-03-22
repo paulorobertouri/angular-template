@@ -1,6 +1,13 @@
 {
   "editor.formatOnSave": true,
   "prettier.configPath": "./.prettierrc.json",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html"
+  ],
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },

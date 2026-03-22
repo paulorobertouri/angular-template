@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "angular-dev-server",
+      "label": "app:run",
       "type": "shell",
       "command": "npm run start",
       "isBackground": true,
@@ -12,14 +12,19 @@
         "background": {
           "activeOnStart": true,
           "beginsPattern": ".",
-          "endsPattern": "Compiled successfully"
+          "endsPattern": "Compiled successfully|Application bundle generation complete"
         }
       }
     },
     {
-      "label": "angular-test-server",
+      "label": "test:run",
       "type": "shell",
-      "command": "npm run test -- --watch",
+      "command": "npm run test"
+    },
+    {
+      "label": "test:watch",
+      "type": "shell",
+      "command": "npx ng test --watch --browsers=Chrome",
       "isBackground": true,
       "problemMatcher": {
         "owner": "custom",
@@ -27,7 +32,7 @@
         "background": {
           "activeOnStart": true,
           "beginsPattern": ".",
-          "endsPattern": "TOTAL"
+          "endsPattern": "TOTAL|Executed"
         }
       }
     }

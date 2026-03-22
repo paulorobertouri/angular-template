@@ -2,18 +2,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Angular: Launch Chrome",
+      "name": "Angular: Debug App",
       "type": "pwa-chrome",
       "request": "launch",
-      "preLaunchTask": "angular-dev-server",
-      "url": "http://localhost:4200/",
+      "preLaunchTask": "app:run",
+      "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}"
     },
     {
       "name": "Angular: Debug Tests",
       "type": "pwa-chrome",
       "request": "launch",
-      "preLaunchTask": "angular-test-server",
+      "preLaunchTask": "test:watch",
       "url": "http://localhost:9876/debug.html",
       "webRoot": "${workspaceFolder}"
     }
