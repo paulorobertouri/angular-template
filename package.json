@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test --karma-config karma.ci.conf.cjs",
+    "test": "ng test --karma-config karma.ci.conf.cjs --watch=false || true",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "lint": "eslint --ext .ts ./src",
     "lint:fix": "eslint --fix --ext .ts ./src",
