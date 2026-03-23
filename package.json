@@ -13,7 +13,8 @@
     "lint": "eslint --ext .ts ./src",
     "lint:fix": "eslint --fix --ext .ts ./src",
     "format": "prettier -w --ignore-path .gitignore \"**/*.{ts,css,html,json,md}\"",
-    "format:check": "prettier -c --ignore-path .gitignore \"**/*.{ts,css,html,json,md}\""
+    "format:check": "prettier -c --ignore-path .gitignore \"**/*.{ts,css,html,json,md}\"",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@angular/common": "^19.2.0",
@@ -38,12 +39,14 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",
+    "husky": "^9.1.7",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.5.3",
     "typescript": "~5.7.2"
   },
@@ -61,6 +64,12 @@
     "extends": [
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended"
+    ]
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
     ]
   }
 }
