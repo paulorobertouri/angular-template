@@ -32,12 +32,13 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Set up Chrome
-        id: chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Install Chromium (for headless tests)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser chromium
 
       - name: Test
         env:
-          CHROME_BIN: ${{ steps.chrome.outputs.chrome-path }}
+          CHROME_BIN: /usr/bin/chromium-browser
         run: |
           pnpm exec ng test --watch=false --browsers=ChromeHeadlessNoSandbox --karma-config=karma.ci.conf.cjs
