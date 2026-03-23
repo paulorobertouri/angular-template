@@ -19,4 +19,4 @@ if [[ -z "${CHROME_BIN:-}" ]]; then
 fi
 
 echo "Running tests..."
-npm run test -- --karma-config karma.ci.conf.cjs
+pnpm test

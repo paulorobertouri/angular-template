@@ -6,4 +6,4 @@ $ProjectRoot = Split-Path -Parent (Split-Path -Parent $ScriptDir)
 Set-Location $ProjectRoot
 
 Write-Output "Installing dependencies..."
-npm install
+pnpm install

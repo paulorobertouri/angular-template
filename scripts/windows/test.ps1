@@ -6,4 +6,4 @@ $ProjectRoot = Split-Path -Parent (Split-Path -Parent $ScriptDir)
 Set-Location $ProjectRoot
 
 Write-Output "Running tests..."
-npm run test -- --karma-config karma.ci.conf.cjs
+pnpm test -- --karma-config karma.ci.conf.cjs
