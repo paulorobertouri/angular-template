@@ -16,6 +16,15 @@
       "preLaunchTask": "test:watch",
       "url": "http://localhost:9876/debug.html",
       "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Angular: Debug E2E",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["test:e2e:headed"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

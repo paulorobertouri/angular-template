@@ -1,5 +1,14 @@
 const { join } = require('path');
 
+if (!process.env.CHROME_BIN) {
+  try {
+    const { chromium } = require('playwright');
+    process.env.CHROME_BIN = chromium.executablePath();
+  } catch {
+    // Keep default Chrome launcher behavior when Playwright is unavailable.
+  }
+}
+
 module.exports = function (config) {
   config.set({
     basePath: '',

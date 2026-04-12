@@ -14,7 +14,10 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Task Board');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'Starter Launchpad',
+    );
+    expect(compiled.querySelector('h2')?.textContent).toContain('Task Board');
     expect(compiled.textContent).toContain('1 of 2 tasks done');
   });
 

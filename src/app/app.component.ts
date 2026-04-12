@@ -28,6 +28,10 @@ export class AppComponent {
     return doneCount(this.tasks);
   }
 
+  get openTasks(): number {
+    return this.tasks.length - this.completedTasks;
+  }
+
   add(): void {
     this.tasks = addTask(this.tasks, this.title);
     this.title = '';
