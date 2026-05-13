@@ -1,24 +1,34 @@
 # Dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
-package-lock.json
-pnpm-lock.yaml
 
 # Build output
 dist/
 build/
 out/
 .next/
-.husky
-
-# Testing
-coverage/
-htmlcov/
+.output/
 .wxt/
+.angular/
+*.tsbuildinfo
+
+# Test output
+coverage/
+.nyc_output/
+htmlcov/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Caches
+.cache/
+.temp/
 
 # IDE
 .idea/
+.vscode/
+*.iml
 *.swp
 *.swo
 *.sublime-project
@@ -27,21 +37,3 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
-
-# Environment variables
-.env
-.env.local
-.env*.local
-
-# Cache & locks
-.cache/
-.temp/
-.ruff_cache/
-.mypy_cache/
-.pytest_cache/
-uv.lock
-
-# Misc
-__snapshots__/
-.output/
-.angular/

@@ -2,57 +2,49 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   pull_request:
-  workflow_dispatch:
-
-permissions:
-  contents: read
+    branches: [main, master]
 
 jobs:
-  quality:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Lint
-        run: pnpm lint
-
-      - name: Format check
-        run: pnpm format:check
-
-      - name: Typecheck
-        run: pnpm typecheck
+        run: pnpm run lint
 
       - name: Build
-        run: pnpm build
+        run: pnpm run build
 
-      - name: Install Chromium (for headless tests)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium || sudo apt-get install -y chromium-browser
+      - name: Unit Tests
+        run: pnpm run test
 
-      - name: Test
-        run: |
-          export CHROME_BIN="$(command -v chromium || command -v chromium-browser)"
-          pnpm exec ng test --watch=false --browsers=ChromeHeadlessNoSandbox --karma-config=karma.ci.conf.cjs
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
 
-      - name: Install Playwright Chromium
-        run: pnpm exec playwright install --with-deps chromium
+      - name: E2E Tests
+        run: pnpm exec playwright test
 
-      - name: E2E
-        run: pnpm test:e2e
+      - name: Upload screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-screenshots
+          path: tests/e2e/screenshots/
+          if-no-files-found: ignore

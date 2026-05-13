@@ -1,21 +1,46 @@
-SHELL := /bin/bash
+.PHONY: help install build run test test-unit test-e2e lint format clean
 
-.PHONY: install install-dev build test format start
+help:
+	@echo "Available commands:"
+	@echo "  install      Install dependencies"
+	@echo "  build        Build the application"
+	@echo "  run          Start the development server"
+	@echo "  test         Run all tests"
+	@echo "  test-unit    Run unit tests"
+	@echo "  test-e2e     Run E2E tests with Playwright"
+	@echo "  lint         Lint the code"
+	@echo "  format       Format the code"
+	@echo "  clean        Clean build artifacts"
 
 install:
-	bash ./scripts/ubuntu/install.sh
-
-install-dev:
-	bash ./scripts/ubuntu/install-dev.sh
+	pnpm install
 
 build:
-	bash ./scripts/ubuntu/build.sh
+	pnpm run build
 
-test:
-	bash ./scripts/ubuntu/test.sh
-
-format:
-	bash ./scripts/ubuntu/format.sh
+run:
+	pnpm start
 
 start:
-	pnpm start
+	bash ./scripts/start.sh
+
+stop:
+	bash ./scripts/stop.sh
+
+test:
+	pnpm test
+
+test-unit:
+	pnpm test
+
+test-e2e:
+	pnpm exec playwright test
+
+lint:
+	pnpm run lint
+
+format:
+	pnpm exec prettier -w .
+
+clean:
+	rm -rf dist

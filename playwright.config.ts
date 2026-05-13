@@ -7,6 +7,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
+    channel: 'chrome',
     baseURL: 'http://127.0.0.1:4200',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
@@ -19,11 +20,11 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { channel: 'chrome', ...devices['Desktop Chrome'] },
     },
     {
       name: 'mobile-chrome',
-      use: { ...devices['Pixel 5'] },
+      use: { channel: 'chrome', ...devices['Pixel 5'] },
     },
   ],
 });

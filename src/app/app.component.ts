@@ -1,47 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
-import {
-  Task,
-  addTask,
-  doneCount,
-  removeTask,
-  toggleTask,
-} from './domain/task.logic';
+import { ButtonComponent } from './components/common/button/button.component';
+import { CardComponent } from './components/common/card/card.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule],
+  standalone: true,
+  imports: [CommonModule, ButtonComponent, CardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  protected readonly initialTasks: Task[] = [
-    { id: 'bootstrap', title: 'Set up lint, tests and formatter', done: true },
-    { id: 'feature', title: 'Build first user-facing feature', done: false },
-  ];
-
-  title = '';
-  tasks: Task[] = [...this.initialTasks];
-
-  get completedTasks(): number {
-    return doneCount(this.tasks);
-  }
-
-  get openTasks(): number {
-    return this.tasks.length - this.completedTasks;
-  }
-
-  add(): void {
-    this.tasks = addTask(this.tasks, this.title);
-    this.title = '';
-  }
-
-  toggle(taskId: string): void {
-    this.tasks = toggleTask(this.tasks, taskId);
-  }
-
-  remove(taskId: string): void {
-    this.tasks = removeTask(this.tasks, taskId);
-  }
+  title = 'angular-template';
 }
