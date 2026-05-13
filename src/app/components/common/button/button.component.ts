@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <button [class]="classes" [disabled]="disabled" (click)="onClick($event)">
+    <button [class]="classes" [disabled]="disabled" (click)="onClick()">
       <ng-content></ng-content>
     </button>
   `,
@@ -27,7 +27,7 @@ export class ButtonComponent {
     return `${baseStyles} ${variants[this.variant]} ${this.className}`;
   }
 
-  onClick(event: MouseEvent) {
+  onClick() {
     // Event handling
   }
 }
