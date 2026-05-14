@@ -15,22 +15,12 @@ describe('AppComponent', () => {
 
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Starter Launchpad',
+      'Angular Golden Template',
     );
-    expect(compiled.querySelector('h2')?.textContent).toContain('Task Board');
-    expect(compiled.textContent).toContain('1 of 2 tasks done');
-  });
-
-  it('adds a task through the component API', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const component = fixture.componentInstance;
-
-    component.title = 'Write integration tests';
-    component.add();
-
-    expect(
-      component.tasks.some(task => task.title === 'Write integration tests'),
-    ).toBeTrue();
-    expect(component.completedTasks).toBe(1);
+    expect(compiled.textContent).toContain(
+      'Standardized Clean Architecture & Tailwind CSS',
+    );
+    expect(compiled.textContent).toContain('Atomic Components');
+    expect(compiled.textContent).toContain('Testing & DevOps');
   });
 });
