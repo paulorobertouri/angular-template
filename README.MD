@@ -1,6 +1,6 @@
 # angular-template
 
-Production-ready Angular + TypeScript template with testable domain logic and predictable structure.
+> Production-ready Angular + TypeScript template with testable domain logic and predictable structure.
 
 ## Stack
 
