@@ -4,7 +4,7 @@ test('renders the launchpad and adds a task', async ({ page }) => {
   await page.goto('/');
 
   await expect(
-    page.getByRole('heading', { name: 'Starter Launchpad' }),
+    page.getByRole('heading', { name: 'Angular Golden Template' }),
   ).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Task Board' })).toBeVisible();
 
