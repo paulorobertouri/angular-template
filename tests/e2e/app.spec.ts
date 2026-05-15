@@ -1,6 +1,13 @@
 import { expect, test } from '@playwright/test';
+import fs from 'node:fs';
+import path from 'node:path';
 
-test('renders the launchpad cards', async ({ page }) => {
+const SCREENSHOT_DIR = 'tests/e2e/evidence';
+fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+
+test('renders the launchpad cards and captures a screenshot', async ({
+  page,
+}) => {
   await page.goto('/');
 
   await expect(
@@ -16,4 +23,9 @@ test('renders the launchpad cards', async ({ page }) => {
   await expect(page.getByRole('button', { name: 'Get Started' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Learn More' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Delete Data' })).toBeVisible();
+
+  await page.screenshot({
+    path: path.join(SCREENSHOT_DIR, '01_launchpad.png'),
+    fullPage: true,
+  });
 });

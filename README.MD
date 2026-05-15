@@ -18,6 +18,11 @@
 - `make test` — run tests
 - `make format` — format code
 
+## Screenshots
+
+- Run `make test-e2e` to regenerate the browser evidence.
+- The Playwright screenshot is written to `tests/e2e/evidence/01_launchpad.png`.
+
 ## Project Structure
 
 ```text
