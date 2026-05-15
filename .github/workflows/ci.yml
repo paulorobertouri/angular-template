@@ -32,11 +32,11 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps chromium
+
       - name: Unit Tests
         run: pnpm run test
-
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
 
       - name: E2E Tests
         run: pnpm exec playwright test
