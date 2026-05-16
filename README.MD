@@ -18,12 +18,6 @@
 - `make test` — run tests
 - `make format` — format code
 
-## Screenshots
-
-Run `make test-e2e` to regenerate.
-
-![Launchpad](tests/e2e/evidence/01_launchpad.png)
-
 ## Project Structure
 
 ```text
@@ -61,3 +55,7 @@ Applies Fowler-style separation by isolating domain behavior from UI composition
 - Typecheck must pass.
 - Unit tests must pass.
 - Component behavior tests must pass.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
