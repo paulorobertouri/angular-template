@@ -1,32 +1,13 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --font-sans: 'Space Grotesk', 'Segoe UI', sans-serif;
-  --color-brand-ink: #0f172a;
-}
-
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    font-family: var(--font-sans);
-    color: var(--color-brand-ink);
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  body {
-    margin: 0;
-    min-width: 320px;
-    min-height: 100vh;
-  }
-
-  button,
-  input {
-    font: inherit;
-  }
+/* Custom font for the project */
+html {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  color: #0f172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
