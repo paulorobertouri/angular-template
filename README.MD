@@ -20,8 +20,9 @@
 
 ## Screenshots
 
-- Run `make test-e2e` to regenerate the browser evidence.
-- The Playwright screenshot is written to `tests/e2e/evidence/01_launchpad.png`.
+Run `make test-e2e` to regenerate.
+
+![Launchpad](tests/e2e/evidence/01_launchpad.png)
 
 ## Project Structure
 
