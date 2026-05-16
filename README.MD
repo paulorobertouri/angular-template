@@ -12,11 +12,14 @@
 ## Commands
 
 - `make install` — install dependencies
-- `make install-dev` — install dev dependencies
-- `make start` — start dev server
+- `make run` — start dev server
 - `make build` — build for production
-- `make test` — run tests
-- `make format` — format code
+- `make test` — run all tests
+- `make test-unit` — run unit tests
+- `make test-e2e` — run browser e2e tests
+- `make lint` — lint the code
+- `make format` — format the code
+- `make clean` — clean build artifacts
 
 ## Project Structure
 
