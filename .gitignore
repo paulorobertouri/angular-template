@@ -37,3 +37,10 @@ htmlcov/
 # OS
 .DS_Store
 Thumbs.db
+
+# Test results
+playwright-report/
+test-results/
+
+# Output directories
+wwwroot/
