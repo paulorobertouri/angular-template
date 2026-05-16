@@ -22,10 +22,10 @@ run:
 	pnpm start
 
 start:
-	bash ./scripts/start.sh
+	bash ./scripts/ubuntu/start.sh
 
 stop:
-	bash ./scripts/stop.sh
+	bash ./scripts/ubuntu/stop.sh
 
 test:
 	pnpm test
